@@ -1,0 +1,39 @@
+{% extends "navbar.html" %} {% block title %}Cool Cat Personality Test Results{% endblock %} 
+
+{% block content %}
+
+<!--cat results image-->
+<img src="{{ image }}" alt="Results Image" id="images">
+
+<!--social media link buttons-->
+<div class="logo-container">
+    <a href="https://twitter.com/intent/tweet?text=I got {{ cat_text }}!" target="_blank">
+        <img src="/static/twitterlogo.png" alt="Twitter Logo" id="social-logos">
+    </a>
+
+    <a href="https://www.facebook.com/sharer/sharer.php?u=youtube.com" target="_blank">
+        <img src="/static/facebooklogo.png" alt="Facebook Logo" id="social-logos">
+    </a>
+</div>
+
+<h2>Share Your Results!</h2>
+<br>
+
+<!--retake test button-->
+<div class="centered">
+    <form action="/test/start">
+        <button id="retake-button">Click Here to Retake Test</button>
+    </form>
+</div>
+<br>
+
+<!--cat info button-->
+<div class="centered">
+    <form action="/catinfo">
+        <button id="retake-button">Click Here to see Info on all the Cats</button>
+    </form>
+</div>
+
+<br><br>
+
+{% endblock %}

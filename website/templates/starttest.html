@@ -1,0 +1,18 @@
+{% extends "navbar.html" %} {% block title %}Take the Cool Cat Personality Test{% endblock %} 
+
+{% block content %}
+
+<!--test cover image-->
+<br>
+<img src="/static/coolcatquizheader.png" alt="Cover Image" id="startcover">
+<br>
+
+<!--start button-->
+<div class="centered">
+    <form action="/test" method="POST">
+        <button id="start4" name="start4">Start</button>
+    </form>
+</div>
+<br>
+
+{% endblock %}

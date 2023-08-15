@@ -1,0 +1,89 @@
+/* styles for quiz questions */
+h1 {
+    color: #7F669D;
+    text-align: center;
+}
+
+/* styles for results page text */
+h2 {
+    text-align: center;
+    margin-top: -5px;
+    font-size: 20px;
+}
+
+
+/* styles for results image */
+#images {
+    max-width: 100%;
+    height: auto;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+/* formatting for mobile */
+@media (max-width: 767px) {
+    #images {
+      height: auto;
+      width: 100%;
+    }
+  }
+
+/* styles for cat encyclopedia images */
+.cat-info img {
+    max-width: 100%;
+    height: auto;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+/* styles for home image */
+#cover {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 10px solid #7F669D;
+    border-radius: 10px;
+    width: 56%;
+}
+
+/* formatting for mobile */
+@media (max-width: 767px) {
+    #cover {
+      height: auto;
+      width: 100%;
+    }
+  }
+
+/* styles for start image */
+#startcover {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+/* styles for social media share logos */
+.logo-container {
+    display: flex;
+    justify-content: center;
+}
+
+.logo-container img {
+    margin: 10px;
+    max-width: 100%;
+    width: 40px;
+}
+
+/* styles for navbar image */
+#home img {
+    margin-right: 10px;
+    max-width: 60px;
+}

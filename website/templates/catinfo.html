@@ -1,0 +1,27 @@
+{% extends "navbar.html" %} {% block title %}Cat Info{% endblock %} 
+
+{% block content %}
+
+<!--Images for cat encyclopedia-->
+<div class="cat-info">
+    <img src="/static/cucumbercatinfo.png" alt="Cucumber Cat">
+    <img src="/static/lavendercatinfo.png" alt="Lavender Cat">
+    <img src="/static/cherryblossomcatinfo.png" alt="Cherry Blossom Cat">
+    <img src="/static/cloudycatinfo.png" alt="Cloudy Cat">
+    <img src="/static/strawberrycatinfo.png" alt="Strawberry Cat">
+    <img src="/static/clementinecatinfo.png" alt="Clementine Cat">
+    <img src="/static/sunshinecatinfo.png" alt="Sunshine Cat">
+    <img src="/static/seabreezecatinfo.png" alt="Sea Breeze Cat">
+</div>
+
+<br><br>
+
+<!--Go to test button at bottom of page-->
+<div class="centered">
+    <form action="/test/start">
+        <button id="retake-button">Click Here to take the Test</button>
+    </form>
+</div>
+<br>
+
+{% endblock %}

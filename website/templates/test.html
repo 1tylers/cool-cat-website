@@ -1,0 +1,120 @@
+{% extends "navbar.html" %} {% block title %}Quiz 4{% endblock %} 
+
+{% block content %}
+<head>
+
+    <!--import progress bar style sheet-->
+    <link href="{{ url_for('static',filename='bar.css') }}" rel="stylesheet" type="text/css">
+
+
+    <script>
+        // JS function that resets session data when page is refreshed or left
+        function reset_session() {
+        // create request variable
+          const xhr = new XMLHttpRequest();
+          // makes a request to reset session route
+          xhr.open('GET', '/test/reset_session', true);
+          xhr.send();
+        }
+    
+        // event listener that calls the reset_session function when page is refreshed (beforeunload event)
+        window.addEventListener('beforeunload', reset_session);
+
+      </script>
+
+</head>
+
+<!--Text for test questions-->
+<br><br>
+<h1 id="question_text">After a stressful day, I relax afterwards by:</h2>
+<br>
+
+<!--Test buttons 1 and 2-->
+<div class="centered">
+    <button id="button1" name="button1">Spending time with friends.</button>
+    <br>
+    <button id="button2" name="button2">Going home and resting.</button>
+</div>
+
+
+<!--bootstrap progress bar--> 
+<br><br>
+<div class="progress">
+    <div class="progress-bar progress-bar-custom progress-bar-striped progress-bar-animated" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">1/9</div>  
+</div>
+
+
+<script>
+        // JS function to update the questions, button answers, and progress bar
+            function update_test_questions(buttonName) {
+            // sends data to the update buttons route
+            fetch('/test/update_buttons', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                // sends button name
+                body: `buttonName=${encodeURIComponent(buttonName)}`
+            })
+
+            // check the response after going to the update_buttons route
+            .then(response => {
+                if (response.redirected) {
+                    // redirect to test results if flask route prompts redirect
+                    window.location.href = response.url;
+                } else {
+                    // otherwise update the buttons, question, and progress bar to next question if success is returned
+                    response.json().then(data => {
+                        if (data.status === 'success') {
+                            // retrieves the data
+                            const button1 = document.getElementById('button1');
+                            const button2 = document.getElementById('button2');
+                            const question_text = document.getElementById('question_text');
+                            const progressBar = document.querySelector('.progress-bar');
+
+                            // updates the text
+                            button1.textContent = data.new_text_button1;
+                            button2.textContent = data.new_text_button2;
+                            question_text.textContent = data.new_question;
+
+                            // updates the progress bar
+                            progressBar.style.width = (data.progress / 9 * 100) + '%';
+                            progressBar.textContent = `${data.progress}/9`;
+                        }
+                    });
+                }
+            })
+
+            // error catching
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+
+            // visually de-selects the button after its pressed so it doesn't stay highlighted after moving on to next question
+            setTimeout(() => {
+                document.getElementById("button1").blur();
+              }, 100);
+            setTimeout(() => {
+                document.getElementById("button2").blur();
+              }, 100);
+        }
+
+        // event listener for when the buttons are pressed
+        const button1 = document.getElementById('button1');
+        button1.addEventListener('click', () => update_test_questions('button1'));
+
+        const button2 = document.getElementById('button2');
+        button2.addEventListener('click', () => update_test_questions('button2'));
+
+
+        // de-selects buttons, but this is for the very first time button is pressed
+        setTimeout(() => {
+            document.getElementById("button1").blur();
+          }, 100);
+        setTimeout(() => {
+            document.getElementById("button2").blur();
+          }, 100);
+
+</script>
+{% endblock %}

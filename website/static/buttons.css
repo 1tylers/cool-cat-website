@@ -1,0 +1,138 @@
+
+
+/* styles for quiz buttons */
+#button1, #button2 {
+  background-color: #fff;
+  border: 2px solid #7F669D;
+  border-radius: 30px;
+  box-shadow: #7F669D 4px 4px 0 0;
+  color: #7F669D;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  justify-content: center;
+}
+
+
+#button1:active, #button2:active {
+    box-shadow: #7F669D 2px 2px 0 0;
+    transform: translate(2px, 2px);
+  }
+
+@media (min-width: 768px) {
+  #button1, #button2 {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}
+
+.centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+
+
+/* styles for start button */
+#start4 {
+  appearance: none;
+  background-color: transparent;
+  border: 6px solid #7F669D;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #7F669D;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+}
+
+#start4:disabled {
+  pointer-events: none;
+}
+
+#start4:hover {
+  background-color: #FDCEDF;
+  transform: translateY(-2px);
+}
+
+#start4:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+
+
+/* styles for retake and see info button on results page + take test button on encyclopedia page */
+#retake-button {
+  align-items: center;
+  background-color: #fff;
+  border: 2px solid #000;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  display: inline-flex;
+  fill: #000;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: -.8px;
+  line-height: 24px;
+  min-width: 140px;
+  outline: 0;
+  padding: 0 17px;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+#retake-button:focus {
+  color: #171e29;
+}
+
+#retake-button:hover {
+  border-color: #06f;
+  color: #06f;
+  fill: #06f;
+}
+
+#retake-button:active {
+  border-color: #06f;
+  color: #06f;
+  fill: #06f;
+}
+
+@media (min-width: 768px) {
+  #retake-button {
+    min-width: 170px;
+  }
+}
